@@ -47,10 +47,14 @@
                 <box size="0.58 0.3 0.34"/>
             </geometry>
         </collision>
-        <xacro:inertial_box mass="5" x="0.58" y="0.3" z="0.34">
+        <xacro:inertial_box mass="10" x="0.58" y="0.3" z="0.34">
             <origin xyz="0.29 0 0.17" rpy="0 0 0"/>
         </xacro:inertial_box>
     </link>
+
+    <gazebo reference="chassis">
+        <material>Gazebo/White</material>
+    </gazebo>
 
     <!-- TOP CHASSIS LINK -->
 
@@ -75,10 +79,14 @@
             </geometry>
             <material name="white"/>
         </collision>
-        <xacro:inertial_box mass="0.5" x="0.25" y="0.26" z="0.145">
-            <origin xyz="0 0 0" rpy="0 0 0"/>
+        <xacro:inertial_box mass="1.5" x="0.25" y="0.26" z="0.145">
+            <origin xyz="0 0 0.068" rpy="0 0 0"/>
         </xacro:inertial_box>
     </link>
+
+    <gazebo reference="top_chassis_joint">
+        <material>Gazebo/White</material>
+    </gazebo>
 
     <!-- LEFT WHEEL LINK -->
 
@@ -106,6 +114,10 @@
         </xacro:inertial_cylinder>
     </link>
 
+    <gazebo reference="left_wheel">
+        <material>Gazebo/Blue</material>
+    </gazebo>
+
     <!-- RIGHT WHEEL LINK -->
 
     <joint name="right_wheel_joint" type="continuous">
@@ -132,6 +144,10 @@
         </xacro:inertial_cylinder>
     </link>
 
+    <gazebo reference="right_wheel">
+        <material>Gazebo/Blue</material>
+    </gazebo>
+
     <!-- FRONT CASTER WHEEL LINK -->
 
     <joint name="front_caster_joint" type="fixed">
@@ -157,7 +173,13 @@
         </xacro:inertial_sphere>
     </link>
 
-    <!-- FRONT CASTER WHEEL LINK -->
+    <gazebo reference="front_caster_wheel">
+        <material>Gazebo/Black</material>
+        <mu1 value="0.001"/>
+        <mu2 value="0.001"/>
+    </gazebo>
+
+    <!-- BACK CASTER WHEEL LINK -->
 
     <joint name="back_caster_joint" type="fixed">
         <parent link="chassis"/>
@@ -178,5 +200,11 @@
             </geometry>
         </collision>
     </link>
+
+    <gazebo reference="back_caster_wheel">
+        <material>Gazebo/Black</material>
+        <mu1 value="0.001"/>
+        <mu2 value="0.001"/>
+    </gazebo>
 
 </robot>
