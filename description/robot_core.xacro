@@ -19,10 +19,25 @@
         <color rgba="0 0 0 1"/>
     </material>
 
+    <material name="red">
+        <color rgba="1 0 0 1"/>
+    </material>
+
     <!-- BASE LINK -->
 
     <link name="base_link">
 
+    </link>
+
+    <!-- BASE_FOOTPRINT LINK -->
+
+    <joint name="base_footprint_link" type="fixed">
+        <parent link="base_link"/>
+        <child link="base_footprint"/>
+        <origin xyz="0 0 0" rpy-="0 0 0"/>
+    </joint>
+
+    <link name="base_footprint">
     </link>
 
     <!-- CHASSIS LINK -->
@@ -47,7 +62,7 @@
                 <box size="0.58 0.3 0.34"/>
             </geometry>
         </collision>
-        <xacro:inertial_box mass="10" x="0.58" y="0.3" z="0.34">
+        <xacro:inertial_box mass="7" x="0.58" y="0.3" z="0.34">
             <origin xyz="0.29 0 0.17" rpy="0 0 0"/>
         </xacro:inertial_box>
     </link>
@@ -79,7 +94,7 @@
             </geometry>
             <material name="white"/>
         </collision>
-        <xacro:inertial_box mass="1.5" x="0.25" y="0.26" z="0.145">
+        <xacro:inertial_box mass="0.5" x="0.25" y="0.26" z="0.145">
             <origin xyz="0 0 0.068" rpy="0 0 0"/>
         </xacro:inertial_box>
     </link>
@@ -159,13 +174,13 @@
     <link name="front_caster_wheel">
         <visual>
             <geometry>
-                <sphere radius="0.06"/>
+                <sphere radius="0.059"/>
             </geometry>
             <material name="black"/>
         </visual>
         <collision>
             <geometry>
-                <sphere radius="0.06"/>
+                <sphere radius="0.059"/>
             </geometry>
         </collision>
         <xacro:inertial_sphere mass="0.1" radius="0.06">
@@ -190,13 +205,13 @@
     <link name="back_caster_wheel">
         <visual>
             <geometry>
-                <sphere radius="0.06"/>
+                <sphere radius="0.059"/>
             </geometry>
             <material name="black"/>
         </visual>
         <collision>
             <geometry>
-                <sphere radius="0.06"/>
+                <sphere radius="0.059"/>
             </geometry>
         </collision>
     </link>
