@@ -33,6 +33,8 @@ def generate_launch_description():
                     get_package_share_directory(package_name),'launch','joystick.launch.py'
                 )])
     )
+    
+    
 
 
     twist_mux_params = os.path.join(get_package_share_directory(package_name),'config','twist_mux.yaml')
@@ -44,6 +46,11 @@ def generate_launch_description():
         )
 
     
+    cmdtoard = Node(
+        package="cmd_vel_to_arduino",
+        executable="cmd_vel_to_arduino",
+        name="cmd_vel_to_arduino"
+    )
 
 
     robot_description = Command(['ros2 param get --hide-type /robot_state_publisher robot_description'])
@@ -111,6 +118,7 @@ def generate_launch_description():
         rsp,
         joystick,
         twist_mux,
+        cmdtoard,
         delayed_controller_manager,
         delayed_diff_drive_spawner,
         delayed_joint_broad_spawner
