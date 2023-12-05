@@ -41,8 +41,4 @@ def generate_launch_description():
         joy_node,
         teleop_node,
         # twist_stamper
-<<<<<<< HEAD
     ])
-=======
-    ])
->>>>>>> 09fe510840800cc742f057f706fb54c28a56e97b
