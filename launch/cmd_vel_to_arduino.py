@@ -45,7 +45,7 @@ class CmdVelToArduino(Node):
             self.ser.write(serial_command.encode('utf-8'))
             self.get_logger().info(f'Sent: {serial_command}')
         else:
-            self.get_logger().error('k...')        
+            self.get_logger().error('Failed to get log ...')        
 
 def main(args=None):
     rclpy.init(args=args)

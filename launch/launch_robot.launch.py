@@ -34,7 +34,11 @@ def generate_launch_description():
                 )])
     )
     
-    
+    urg = IncludeLaunchDescription(
+                PythonLaunchDescriptionSource([os.path.join(
+                    get_package_share_directory('urg_node2'),'launch','urg_node2.launch.py'
+                )])
+    )
 
 
     twist_mux_params = os.path.join(get_package_share_directory(package_name),'config','twist_mux.yaml')
@@ -117,6 +121,7 @@ def generate_launch_description():
     return LaunchDescription([
         rsp,
         joystick,
+        urg,
         twist_mux,
         cmdtoard,
         delayed_controller_manager,
