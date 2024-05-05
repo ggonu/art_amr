@@ -73,7 +73,8 @@ def generate_launch_description():
     diff_drive_spawner = Node(
         package="controller_manager",
         executable="spawner",
-        arguments=["diff_cont"],
+        arguments=["diff_cont"]
+        # remappings=[('diff_cont/odom', '/odom')]
     )
 
     delayed_diff_drive_spawner = RegisterEventHandler(
@@ -121,10 +122,11 @@ def generate_launch_description():
     return LaunchDescription([
         rsp,
         joystick,
-        urg,
+        # urg,
         twist_mux,
         cmdtoard,
         delayed_controller_manager,
         delayed_diff_drive_spawner,
-        delayed_joint_broad_spawner
+        delayed_joint_broad_spawner,
+        urg
     ])

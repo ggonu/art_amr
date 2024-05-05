@@ -67,6 +67,18 @@ def generate_launch_description():
         executable="spawner",
         arguments=["joint_broad"],
     )
+    
+    cmdtoard = Node(
+        package="cmd_vel_to_arduino",
+        executable="cmd_vel_to_arduino",
+        name="cmd_vel_to_arduino"
+    )
+    
+    urg = IncludeLaunchDescription(
+                PythonLaunchDescriptionSource([os.path.join(
+                    get_package_share_directory('urg_node2'),'launch','urg_node2.launch.py'
+                )])
+    )
 
 
     # Launch them all!
@@ -78,4 +90,6 @@ def generate_launch_description():
         spawn_entity,
         diff_drive_spawner,
         joint_broad_spawner,
+        # urg,
+        cmdtoard,
     ])
